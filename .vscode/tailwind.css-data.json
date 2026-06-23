@@ -1,0 +1,13 @@
+{
+  "version": 1.1,
+  "atDirectives": [
+    {
+      "name": "@theme",
+      "description": "Tailwind CSS v4 theme directive — defines design tokens (colors, fonts, animations, etc.)"
+    },
+    {
+      "name": "@import",
+      "description": "CSS import statement used by Tailwind CSS v4 to pull in itself"
+    }
+  ]
+}
