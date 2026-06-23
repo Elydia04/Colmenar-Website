@@ -19,6 +19,16 @@ export default function Hero() {
 
   useEffect(() => {
     rootRef.current?.classList.add('hero-loaded')
+
+    const replay = () => {
+      const el = rootRef.current
+      if (!el) return
+      el.classList.remove('hero-loaded')
+      requestAnimationFrame(() => el.classList.add('hero-loaded'))
+    }
+
+    window.addEventListener('replay-animations', replay)
+    return () => window.removeEventListener('replay-animations', replay)
   }, [])
 
   return (

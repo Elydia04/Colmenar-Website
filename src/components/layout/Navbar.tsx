@@ -1,7 +1,8 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 const links = [
   { label: 'Home', href: '/' },
@@ -12,6 +13,7 @@ const links = [
 ]
 
 export default function Navbar() {
+  const pathname = usePathname()
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
 
@@ -20,6 +22,19 @@ export default function Navbar() {
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
+
+  const handleNav = useCallback(
+    (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+      const hashIndex = href.indexOf('#')
+      const path = hashIndex === -1 ? href : href.slice(0, hashIndex)
+      if (path === pathname) {
+        e.preventDefault()
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+        window.dispatchEvent(new CustomEvent('replay-animations'))
+      }
+    },
+    [pathname]
+  )
 
   return (
     <nav
@@ -32,6 +47,7 @@ export default function Navbar() {
       <div className="max-w-[1200px] mx-auto px-4 md:px-8 h-full flex items-center justify-between">
         <Link
           href="/"
+          onClick={(e) => handleNav(e, '/')}
           className="font-display italic text-spring-mid text-xl md:text-2xl"
         >
           Villa Colmenar
@@ -42,6 +58,7 @@ export default function Navbar() {
             <Link
               key={link.href}
               href={link.href}
+              onClick={(e) => handleNav(e, link.href)}
               className="font-body text-sm text-white/80 hover:text-white transition-colors"
             >
               {link.label}
@@ -49,6 +66,7 @@ export default function Navbar() {
           ))}
           <Link
             href="/book"
+            onClick={(e) => handleNav(e, '/book')}
             className="bg-sun text-stone font-body font-medium rounded-full px-5 py-2 text-sm hover:brightness-110 transition-all"
           >
             Book a Dip
@@ -77,7 +95,10 @@ export default function Navbar() {
               key={link.href}
               href={link.href}
               className="font-body text-white/80 hover:text-white transition-colors"
-              onClick={() => setMenuOpen(false)}
+              onClick={(e) => {
+                setMenuOpen(false)
+                handleNav(e, link.href)
+              }}
             >
               {link.label}
             </Link>
@@ -85,7 +106,10 @@ export default function Navbar() {
           <Link
             href="/book"
             className="bg-sun text-stone font-body font-medium rounded-full px-5 py-2 text-center text-sm"
-            onClick={() => setMenuOpen(false)}
+            onClick={(e) => {
+              setMenuOpen(false)
+              handleNav(e, '/book')
+            }}
           >
             Book a Dip
           </Link>
