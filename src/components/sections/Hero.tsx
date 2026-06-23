@@ -3,12 +3,16 @@
 import { useEffect, useRef } from 'react'
 import Button from '@/components/ui/Button'
 
+function seeded(i: number, offset = 0) {
+  return (Math.sin(i * 12.9898 + offset * 78.233) * 43758.5453) % 1
+}
+
 const droplets = Array.from({ length: 8 }, (_, i) => ({
   id: i,
-  left: `${10 + Math.random() * 80}%`,
-  top: `${30 + Math.random() * 50}%`,
-  size: `${8 + Math.random() * 14}px`,
-  delay: `${Math.random() * 3}s`,
+  left: `${10 + seeded(i, 1) * 80}%`,
+  top: `${30 + seeded(i, 2) * 50}%`,
+  size: `${8 + seeded(i, 3) * 14}px`,
+  delay: `${seeded(i, 4) * 3}s`,
 }))
 
 export default function Hero() {
