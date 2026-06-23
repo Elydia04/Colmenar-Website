@@ -18,7 +18,7 @@ function Stat({
   const { ref } = useCountUp(value)
 
   return (
-    <div className="relative flex flex-col items-center">
+    <div className="relative flex flex-col items-center w-full">
       <RippleRing />
       <span
         ref={ref}

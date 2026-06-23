@@ -3,17 +3,16 @@
 import { useEffect, useRef } from 'react'
 import Button from '@/components/ui/Button'
 
-function seeded(i: number, offset = 0) {
-  return (Math.sin(i * 12.9898 + offset * 78.233) * 43758.5453) % 1
-}
-
-const droplets = Array.from({ length: 8 }, (_, i) => ({
-  id: i,
-  left: `${10 + seeded(i, 1) * 80}%`,
-  top: `${30 + seeded(i, 2) * 50}%`,
-  size: `${8 + seeded(i, 3) * 14}px`,
-  delay: `${seeded(i, 4) * 3}s`,
-}))
+const droplets = [
+  { id: 0, left: '15%', top: '40%', size: 12, delay: '0s' },
+  { id: 1, left: '35%', top: '55%', size: 8, delay: '0.5s' },
+  { id: 2, left: '55%', top: '35%', size: 16, delay: '1s' },
+  { id: 3, left: '75%', top: '60%', size: 10, delay: '1.5s' },
+  { id: 4, left: '20%', top: '70%', size: 14, delay: '2s' },
+  { id: 5, left: '60%', top: '45%', size: 9, delay: '2.5s' },
+  { id: 6, left: '85%', top: '50%', size: 18, delay: '0.8s' },
+  { id: 7, left: '45%', top: '75%', size: 11, delay: '1.8s' },
+]
 
 export default function Hero() {
   const rootRef = useRef<HTMLElement>(null)
@@ -23,7 +22,7 @@ export default function Hero() {
   }, [])
 
   return (
-    <section ref={rootRef} className="relative h-screen w-full overflow-hidden">
+    <section ref={rootRef} className="hero-root relative h-screen w-full overflow-hidden">
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: "url('/images/hero-pool.jpg')" }}
@@ -38,8 +37,8 @@ export default function Hero() {
           style={{
             left: d.left,
             top: d.top,
-            width: d.size,
-            height: d.size,
+            width: `${d.size}px`,
+            height: `${d.size}px`,
             animation: `dropletFloat 4s ease-in-out infinite`,
             animationDelay: d.delay,
           }}
@@ -53,15 +52,13 @@ export default function Hero() {
       <div className="absolute inset-0 flex items-end justify-center pb-16 md:pb-24">
         <div className="text-center max-w-[800px] px-4">
           <p
-            className="font-mono text-xs uppercase tracking-widest text-white/80 mb-4 transition-all duration-[600ms] hero-loaded:opacity-100 opacity-0"
-            style={{ transitionDelay: '200ms' }}
+            className="hero-eyebrow font-mono text-xs uppercase tracking-widest text-white/80 mb-4"
           >
             Natural Spring Water &middot; Est. 2005
           </p>
 
           <h1
-            className="font-display text-6xl md:text-8xl font-light tracking-tight leading-none text-white mb-6 transition-all duration-[800ms] hero-loaded:opacity-100 hero-loaded:translate-y-0 opacity-0 translate-y-[30px]"
-            style={{ transitionDelay: '400ms' }}
+            className="hero-title font-display text-6xl md:text-8xl font-light tracking-tight leading-none text-white mb-6"
           >
             Dive Into
             <br />
@@ -69,15 +66,13 @@ export default function Hero() {
           </h1>
 
           <p
-            className="font-body text-base md:text-lg text-white/80 leading-relaxed max-w-[600px] mx-auto mb-8 transition-all duration-[600ms] hero-loaded:opacity-100 opacity-0"
-            style={{ transitionDelay: '700ms' }}
+            className="hero-sub font-body text-base md:text-lg text-white/80 leading-relaxed max-w-[600px] mx-auto mb-8"
           >
             Fed by underground springs, our pool stays crystal-clear and naturally cool &mdash; no chemicals, just nature.
           </p>
 
           <div
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 transition-all duration-[600ms] hero-loaded:opacity-100 hero-loaded:scale-100 opacity-0 scale-95"
-            style={{ transitionDelay: '900ms' }}
+            className="hero-cta flex flex-col sm:flex-row items-center justify-center gap-4"
           >
             <Button variant="primary" href="/book">
               Book Your Visit
