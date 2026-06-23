@@ -25,9 +25,7 @@ export default function Navbar() {
 
   const handleNav = useCallback(
     (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-      const hashIndex = href.indexOf('#')
-      const path = hashIndex === -1 ? href : href.slice(0, hashIndex)
-      if (path === pathname) {
+      if (!href.includes('#') && href === pathname) {
         e.preventDefault()
         window.scrollTo({ top: 0, behavior: 'smooth' })
         window.dispatchEvent(new CustomEvent('replay-animations'))
