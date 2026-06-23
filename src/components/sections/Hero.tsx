@@ -78,7 +78,7 @@ export default function Hero() {
               Book Your Visit
             </Button>
             <Button variant="ghost" href="#spring">
-              See the Pool &darr;
+              See the Pool <span className="arrow-down">&darr;</span>
             </Button>
           </div>
         </div>

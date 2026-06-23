@@ -47,7 +47,7 @@ export default function About() {
             href="/gallery"
             className="inline-block font-body text-spring-deep underline underline-offset-4 hover:text-spring-mid transition-colors"
           >
-            Learn more about us &rarr;
+            Learn more about us <span className="link-arrow">&rarr;</span>
           </Link>
         </div>
       </div>

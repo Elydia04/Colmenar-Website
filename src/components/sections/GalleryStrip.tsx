@@ -47,7 +47,7 @@ export default function GalleryStrip() {
             href="/gallery"
             className="font-body text-sun hover:brightness-110 transition-all"
           >
-            View Full Gallery &rarr;
+            View Full Gallery <span className="link-arrow">&rarr;</span>
           </Link>
         </div>
       </div>
