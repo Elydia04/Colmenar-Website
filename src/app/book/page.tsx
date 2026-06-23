@@ -3,7 +3,7 @@ import Button from '@/components/ui/Button'
 export default function BookPage() {
   return (
     <div className="pt-24 pb-20 bg-cream min-h-screen">
-      <div className="max-w-[640px] mx-auto px-4 md:px-8">
+      <div className="max-w-160 mx-auto px-4 md:px-8">
         <p className="font-mono text-xs uppercase tracking-widest text-leaf text-center mb-4">
           Reserve Your Visit
         </p>

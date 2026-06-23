@@ -3,7 +3,7 @@ import Link from 'next/link'
 export default function Footer() {
   return (
     <footer className="bg-[#111A16] text-spring-foam">
-      <div className="max-w-[1200px] mx-auto px-4 md:px-8 py-12 md:py-16">
+      <div className="max-w-300 mx-auto px-4 md:px-8 py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <h3 className="font-display italic text-spring-mid text-xl mb-3">
@@ -36,7 +36,7 @@ export default function Footer() {
           <div>
             <h4 className="font-mono text-xs uppercase tracking-widest text-spring-mid mb-4">Connect</h4>
             <div className="flex flex-col gap-2">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="font-body text-sm text-white/60 hover:text-white transition-colors">
+              <a href="https://www.facebook.com/VillaColmenarResort" target="_blank" rel="noopener noreferrer" className="font-body text-sm text-white/60 hover:text-white transition-colors">
                 Facebook
               </a>
               <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="font-body text-sm text-white/60 hover:text-white transition-colors">
