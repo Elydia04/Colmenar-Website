@@ -28,7 +28,7 @@ export default function Hero() {
         style={{ backgroundImage: "url('/images/hero-pool.jpg')" }}
       />
 
-      <div className="absolute inset-0 bg-gradient-to-t from-[#1A7A8A]/70 to-transparent" />
+      <div className="absolute inset-0 bg-linear-to-t from-spring-deep/70 to-transparent" />
 
       {droplets.map((d) => (
         <svg
@@ -50,7 +50,7 @@ export default function Hero() {
       ))}
 
       <div className="absolute inset-0 flex items-end justify-center pb-16 md:pb-24">
-        <div className="text-center max-w-[800px] px-4">
+        <div className="text-center max-w-200 px-4">
           <p
             className="hero-eyebrow font-mono text-xs uppercase tracking-widest text-black/80 mb-4"
           >
@@ -66,7 +66,7 @@ export default function Hero() {
           </h1>
 
           <p
-            className="hero-sub font-body text-base md:text-lg text-white/80 leading-relaxed max-w-[600px] mx-auto mb-8"
+            className="hero-sub font-body text-base md:text-lg text-white/80 leading-relaxed max-w-150 mx-auto mb-8"
           >
             Fed by underground springs, our pool stays crystal-clear and naturally cool &mdash; no chemicals, just nature.
           </p>
