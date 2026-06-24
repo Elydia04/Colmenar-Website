@@ -1,10 +1,15 @@
 const images = [
-  { src: '/images/hero-pool.jpg', caption: 'The spring pool with colonnaded building' },
-  { src: '/images/spring-source.jpg', caption: 'Natural spring source in the jungle' },
-  { src: '/images/pool-aerial.jpg', caption: 'Aerial view of the pool' },
-  { src: '/images/hero-pool.jpg', caption: 'Guests enjoying the pool' },
-  { src: '/images/spring-source.jpg', caption: 'Lush tropical garden grounds' },
-  { src: '/images/pool-aerial.jpg', caption: 'Mediterranean-style architecture' },
+  { src: '/images/hero-pool.jpg', caption: 'The natural spring pool' },
+  { src: '/images/night-pool.jpg', caption: 'Evening at Villa Colmenar' },
+  { src: '/images/cottages.jpg', caption: 'Cozy cottage accommodations' },
+  { src: '/images/spring-source.jpg', caption: 'Tropical resort overview' },
+  { src: '/images/night-aerial.jpg', caption: 'Aerial view at night' },
+  { src: '/images/room-a.jpg', caption: 'Room A — accommodates 2-6 guests' },
+  { src: '/images/room-b.jpg', caption: 'Room B — accommodates 2-6 guests' },
+  { src: '/images/room-c.jpg', caption: 'Room C — accommodates 8-12 guests' },
+  { src: '/images/room-d.jpg', caption: 'Room D — accommodates 18-22 guests' },
+  { src: '/images/room-e.jpg', caption: 'Room E — accommodates 12-15 guests' },
+  { src: '/images/room-small.jpg', caption: 'Cozy room — accommodates 2-4 guests' },
 ]
 
 export default function GalleryPage() {

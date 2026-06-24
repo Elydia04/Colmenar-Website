@@ -14,20 +14,22 @@ export default function BookPage() {
         <form className="bg-white rounded-2xl p-8 shadow-sm space-y-5">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div>
-              <label className="font-mono text-xs uppercase tracking-widest text-leaf block mb-1.5">
+              <label htmlFor="name" className="font-mono text-xs uppercase tracking-widest text-leaf block mb-1.5">
                 Name
               </label>
               <input
+                id="name"
                 type="text"
                 required
                 className="w-full border border-spring-pale rounded-lg px-4 py-2.5 font-body text-sm text-stone focus:outline-none focus:ring-2 focus:ring-spring-mid"
               />
             </div>
             <div>
-              <label className="font-mono text-xs uppercase tracking-widest text-leaf block mb-1.5">
+              <label htmlFor="contact" className="font-mono text-xs uppercase tracking-widest text-leaf block mb-1.5">
                 Contact Number
               </label>
               <input
+                id="contact"
                 type="tel"
                 required
                 className="w-full border border-spring-pale rounded-lg px-4 py-2.5 font-body text-sm text-stone focus:outline-none focus:ring-2 focus:ring-spring-mid"
@@ -36,10 +38,11 @@ export default function BookPage() {
           </div>
 
           <div>
-            <label className="font-mono text-xs uppercase tracking-widest text-leaf block mb-1.5">
+            <label htmlFor="email" className="font-mono text-xs uppercase tracking-widest text-leaf block mb-1.5">
               Email
             </label>
             <input
+              id="email"
               type="email"
               required
               className="w-full border border-spring-pale rounded-lg px-4 py-2.5 font-body text-sm text-stone focus:outline-none focus:ring-2 focus:ring-spring-mid"
@@ -48,20 +51,22 @@ export default function BookPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div>
-              <label className="font-mono text-xs uppercase tracking-widest text-leaf block mb-1.5">
+              <label htmlFor="date" className="font-mono text-xs uppercase tracking-widest text-leaf block mb-1.5">
                 Preferred Date
               </label>
               <input
+                id="date"
                 type="date"
                 required
                 className="w-full border border-spring-pale rounded-lg px-4 py-2.5 font-body text-sm text-stone focus:outline-none focus:ring-2 focus:ring-spring-mid"
               />
             </div>
             <div>
-              <label className="font-mono text-xs uppercase tracking-widest text-leaf block mb-1.5">
+              <label htmlFor="package" className="font-mono text-xs uppercase tracking-widest text-leaf block mb-1.5">
                 Package
               </label>
               <select
+                id="package"
                 className="w-full border border-spring-pale rounded-lg px-4 py-2.5 font-body text-sm text-stone focus:outline-none focus:ring-2 focus:ring-spring-mid"
               >
                 <option>Day Pass</option>
@@ -72,10 +77,11 @@ export default function BookPage() {
           </div>
 
           <div>
-            <label className="font-mono text-xs uppercase tracking-widest text-leaf block mb-1.5">
+            <label htmlFor="guests" className="font-mono text-xs uppercase tracking-widest text-leaf block mb-1.5">
               Number of Guests
             </label>
             <input
+              id="guests"
               type="number"
               min={1}
               required
@@ -84,10 +90,11 @@ export default function BookPage() {
           </div>
 
           <div>
-            <label className="font-mono text-xs uppercase tracking-widest text-leaf block mb-1.5">
+            <label htmlFor="message" className="font-mono text-xs uppercase tracking-widest text-leaf block mb-1.5">
               Message / Special Requests
             </label>
             <textarea
+              id="message"
               rows={4}
               className="w-full border border-spring-pale rounded-lg px-4 py-2.5 font-body text-sm text-stone focus:outline-none focus:ring-2 focus:ring-spring-mid resize-none"
             />

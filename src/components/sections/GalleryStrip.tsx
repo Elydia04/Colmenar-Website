@@ -4,11 +4,11 @@ import { useScrollReveal } from '@/lib/useScrollReveal'
 import Link from 'next/link'
 
 const photos = [
-  { src: '/images/hero-pool.jpg', caption: 'The spring pool' },
-  { src: '/images/spring-source.jpg', caption: 'Natural spring source' },
-  { src: '/images/pool-aerial.jpg', caption: 'Aerial pool view' },
-  { src: '/images/hero-pool.jpg', caption: 'Colonnaded building' },
-  { src: '/images/spring-source.jpg', caption: 'Jungle surroundings' },
+  { src: '/images/hero-pool.jpg', caption: 'The natural spring pool' },
+  { src: '/images/cottages.jpg', caption: 'Cozy cottage accommodations' },
+  { src: '/images/night-pool.jpg', caption: 'Evening at the pool' },
+  { src: '/images/spring-source.jpg', caption: 'Tropical resort overview' },
+  { src: '/images/night-aerial.jpg', caption: 'Aerial night view' },
 ]
 
 export default function GalleryStrip() {

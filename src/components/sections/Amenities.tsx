@@ -3,12 +3,12 @@
 import { useScrollReveal } from '@/lib/useScrollReveal'
 
 const amenities = [
-  { icon: '🏊', title: 'Natural Spring Pool', desc: 'Main pool, spring-fed, open daily' },
-  { icon: '🌿', title: 'Lush Garden Grounds', desc: 'Tropical landscaping, shaded rest areas' },
-  { icon: '🏠', title: 'Function Rooms / Cottages', desc: 'Rent private spaces for events' },
-  { icon: '🍽️', title: 'Poolside Dining', desc: 'Food & beverages on site' },
-  { icon: '🅿️', title: 'Ample Parking', desc: 'Free secure parking' },
-  { icon: '📸', title: 'Scenic Views', desc: 'Hills + colonial architecture backdrop' },
+  { img: '/images/hero-pool.jpg', title: 'Natural Spring Pool', desc: 'Main pool, spring-fed, open daily' },
+  { img: '/images/spring-source.jpg', title: 'Lush Garden Grounds', desc: 'Tropical landscaping, shaded rest areas' },
+  { img: '/images/cottages.jpg', title: 'Function Rooms / Cottages', desc: 'Rent private spaces for events' },
+  { img: '/images/night-pool.jpg', title: 'Poolside Dining', desc: 'Food & beverages on site' },
+  { img: null, title: 'Ample Parking', desc: 'Free secure parking' },
+  { img: '/images/night-aerial.jpg', title: 'Scenic Views', desc: 'Hills + colonial architecture backdrop' },
 ]
 
 export default function Amenities() {
@@ -28,13 +28,22 @@ export default function Amenities() {
           {amenities.map((a) => (
             <div
               key={a.title}
-              className="bg-white border border-spring-pale rounded-2xl p-6 text-left hover:-translate-y-1 hover:shadow-lg hover:border-spring-mid transition-all duration-300"
+              className="bg-white border border-spring-pale rounded-2xl overflow-hidden text-left hover:-translate-y-1 hover:shadow-lg hover:border-spring-mid transition-all duration-300"
             >
-              <div className="w-10 h-10 bg-spring-foam rounded-full flex items-center justify-center text-lg mb-4">
-                {a.icon}
+              {a.img ? (
+                <div
+                  className="h-40 bg-cover bg-center"
+                  style={{ backgroundImage: `url(${a.img})` }}
+                />
+              ) : (
+                <div className="h-40 bg-gradient-to-br from-spring-foam to-spring-pale flex items-center justify-center">
+                  <span className="text-4xl text-spring-deep/40">&#10022;</span>
+                </div>
+              )}
+              <div className="p-6">
+                <h3 className="font-display text-xl text-stone mb-1">{a.title}</h3>
+                <p className="font-body text-sm text-stone/70">{a.desc}</p>
               </div>
-              <h3 className="font-display text-xl text-stone mb-1">{a.title}</h3>
-              <p className="font-body text-sm text-stone/70">{a.desc}</p>
             </div>
           ))}
         </div>

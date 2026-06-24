@@ -34,7 +34,16 @@ export const metadata: Metadata = {
     title: 'Villa Colmenar — Spring Water Pool Resort',
     description:
       'Natural spring-fed pool, tropical gardens, and the perfect family escape.',
-    images: ['/images/hero-pool.jpg'],
+    images: [
+      {
+        url: '/images/hero-pool.jpg',
+        width: 1200,
+        height: 800,
+        alt: 'Villa Colmenar natural spring pool',
+      },
+    ],
+    locale: 'en_PH',
+    type: 'website',
   },
 }
 
@@ -43,11 +52,41 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Resort',
+    name: 'Villa Colmenar',
+    description:
+      'Natural spring water pool resort in Indang, Cavite. Crystal-clear, chemical-free spring-fed pool.',
+    url: 'https://villacolmenar.com',
+    telephone: '(046) 123-4567',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Tambo Kulit',
+      addressLocality: 'Indang',
+      addressRegion: 'Cavite',
+      addressCountry: 'PH',
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 14.2,
+      longitude: 120.9,
+    },
+    image: '/images/hero-pool.jpg',
+    priceRange: '₱120 - ₱8,000',
+  }
+
   return (
     <html
       lang="en"
       className={`${cormorant.variable} ${dmSans.variable} ${dmMono.variable}`}
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="min-h-screen flex flex-col font-body text-stone bg-white">
         <ScrollToTop />
         <Navbar />
