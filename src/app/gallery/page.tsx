@@ -1,3 +1,8 @@
+'use client'
+
+import { useState } from 'react'
+import Lightbox from '@/components/ui/Lightbox'
+
 const images = [
   { src: '/images/hero-pool.jpg', caption: 'The natural spring pool' },
   { src: '/images/night-pool.jpg', caption: 'Evening at Villa Colmenar' },
@@ -13,6 +18,8 @@ const images = [
 ]
 
 export default function GalleryPage() {
+  const [lightbox, setLightbox] = useState<{ src: string; caption: string } | null>(null)
+
   return (
     <div className="pt-24 pb-20 bg-stone min-h-screen">
       <div className="max-w-[1200px] mx-auto px-4 md:px-8">
@@ -25,22 +32,30 @@ export default function GalleryPage() {
 
         <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
           {images.map((img, i) => (
-            <div
+            <button
               key={i}
-              className="break-inside-avoid rounded-xl overflow-hidden group relative"
+              onClick={() => setLightbox(img)}
+              className="break-inside-avoid rounded-xl overflow-hidden group relative block w-full text-left cursor-pointer"
             >
               <div
-                className="aspect-[4/3] bg-cover bg-center transition-transform duration-400 group-hover:scale-105"
+                className="aspect-[4/3] bg-cover bg-center transition-all duration-400 group-hover:-translate-y-0.5 group-hover:shadow-xl"
                 style={{ backgroundImage: `url(${img.src})` }}
               />
-              <div className="absolute inset-0 bg-spring-deep/0 group-hover:bg-spring-deep/40 transition-all duration-400" />
-              <p className="absolute bottom-0 left-0 right-0 p-4 text-white font-body text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-400">
+              <p className="absolute bottom-0 left-0 right-0 p-4 text-white font-body text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-400 bg-gradient-to-t from-black/60 to-transparent">
                 {img.caption}
               </p>
-            </div>
+            </button>
           ))}
         </div>
       </div>
+
+      {lightbox && (
+        <Lightbox
+          src={lightbox.src}
+          caption={lightbox.caption}
+          onClose={() => setLightbox(null)}
+        />
+      )}
     </div>
   )
 }

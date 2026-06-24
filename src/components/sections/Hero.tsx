@@ -62,7 +62,7 @@ export default function Hero() {
       <div className="absolute inset-0 flex items-end justify-center pb-16 md:pb-24">
         <div className="text-center max-w-200 px-4">
           <p
-            className="hero-eyebrow font-mono text-xs uppercase tracking-widest text-black/80 mb-4"
+            className="hero-eyebrow font-mono text-xs uppercase tracking-widest text-white mb-4"
           >
             Natural Spring Water &middot; Est. 2005
           </p>

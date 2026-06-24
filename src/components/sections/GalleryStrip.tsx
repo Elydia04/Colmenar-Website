@@ -1,6 +1,8 @@
 'use client'
 
+import { useState } from 'react'
 import { useScrollReveal } from '@/lib/useScrollReveal'
+import Lightbox from '@/components/ui/Lightbox'
 import Link from 'next/link'
 
 const photos = [
@@ -13,6 +15,7 @@ const photos = [
 
 export default function GalleryStrip() {
   const ref = useScrollReveal()
+  const [lightbox, setLightbox] = useState<{ src: string; caption: string } | null>(null)
 
   return (
     <section className="bg-stone py-20 md:py-28">
@@ -26,19 +29,19 @@ export default function GalleryStrip() {
 
         <div className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory md:grid md:grid-cols-3 md:gap-4 lg:grid-cols-5">
           {photos.map((photo, i) => (
-            <div
+            <button
               key={i}
-              className="relative group flex-shrink-0 w-[280px] md:w-auto snap-start aspect-[4/3] rounded-xl overflow-hidden"
+              onClick={() => setLightbox(photo)}
+              className="relative group flex-shrink-0 w-[280px] md:w-auto snap-start aspect-[4/3] rounded-xl overflow-hidden cursor-pointer text-left"
             >
               <div
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-400 group-hover:scale-105"
+                className="absolute inset-0 bg-cover bg-center transition-all duration-400 group-hover:-translate-y-0.5 group-hover:shadow-xl"
                 style={{ backgroundImage: `url(${photo.src})` }}
               />
-              <div className="absolute inset-0 bg-spring-deep/0 group-hover:bg-spring-deep/40 transition-all duration-400" />
-              <p className="absolute bottom-0 left-0 right-0 p-3 text-white font-body text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-400">
+              <p className="absolute bottom-0 left-0 right-0 p-3 text-white font-body text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-400 bg-gradient-to-t from-black/60 to-transparent pt-6">
                 {photo.caption}
               </p>
-            </div>
+            </button>
           ))}
         </div>
 
@@ -51,6 +54,14 @@ export default function GalleryStrip() {
           </Link>
         </div>
       </div>
+
+      {lightbox && (
+        <Lightbox
+          src={lightbox.src}
+          caption={lightbox.caption}
+          onClose={() => setLightbox(null)}
+        />
+      )}
     </section>
   )
 }

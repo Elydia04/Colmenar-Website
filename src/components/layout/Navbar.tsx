@@ -46,18 +46,18 @@ export default function Navbar() {
         <Link
           href="/"
           onClick={(e) => handleNav(e, '/')}
-          className="font-display italic text-spring-mid text-xl md:text-2xl"
+          className="font-display text-lg md:text-xl font-semibold text-white bg-spring-deep/80 px-4 py-1.5 rounded-full backdrop-blur-sm"
         >
           Villa Colmenar
         </Link>
 
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-3">
           {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               onClick={(e) => handleNav(e, link.href)}
-              className="font-body text-sm text-white/80 hover:text-white transition-colors"
+              className="font-body text-sm text-white bg-spring-deep/70 hover:bg-spring-deep/90 backdrop-blur-sm rounded-full px-4 py-1.5 transition-all"
             >
               {link.label}
             </Link>
@@ -65,7 +65,7 @@ export default function Navbar() {
           <Link
             href="/book"
             onClick={(e) => handleNav(e, '/book')}
-            className="bg-sun text-stone font-body font-medium rounded-full px-5 py-2 text-sm hover:brightness-110 transition-all"
+            className="bg-sun text-stone font-body font-medium rounded-full px-5 py-1.5 text-sm hover:brightness-110 transition-all"
           >
             Book a Dip
           </Link>
