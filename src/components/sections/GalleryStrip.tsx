@@ -32,9 +32,13 @@ export default function GalleryStrip() {
             <button
               key={i}
               onClick={() => setLightbox(photo)}
+              aria-haspopup="dialog"
+              aria-label={photo.caption}
               className="relative group flex-shrink-0 w-[280px] md:w-auto snap-start aspect-[4/3] rounded-xl overflow-hidden cursor-pointer text-left"
             >
               <div
+                role="img"
+                aria-label={photo.caption}
                 className="absolute inset-0 bg-cover bg-center transition-all duration-400 group-hover:-translate-y-0.5 group-hover:shadow-xl"
                 style={{ backgroundImage: `url(${photo.src})` }}
               />

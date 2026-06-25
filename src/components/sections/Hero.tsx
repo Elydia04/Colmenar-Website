@@ -34,6 +34,8 @@ export default function Hero() {
   return (
     <section ref={rootRef} className="hero-root relative h-screen w-full overflow-hidden">
       <div
+        role="img"
+        aria-label="Villa Colmenar natural spring pool surrounded by tropical gardens"
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: "url('/images/hero-pool.jpg')" }}
       />

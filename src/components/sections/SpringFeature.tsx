@@ -20,11 +20,8 @@ function Stat({
   return (
     <div className="relative flex flex-col items-center w-full">
       <RippleRing />
-      <span
-        ref={ref}
-        className="font-display text-5xl md:text-6xl font-semibold text-white mt-4"
-      >
-        0{suffix}
+      <span className="font-display text-5xl md:text-6xl font-semibold text-white mt-4">
+        <span ref={ref}>0</span>{suffix}
       </span>
       <span className="font-body text-sm text-spring-foam/80 mt-1">{label}</span>
     </div>
@@ -33,6 +30,7 @@ function Stat({
 
 export default function SpringFeature() {
   const ref = useScrollReveal()
+  const galleryRef = useScrollReveal()
 
   return (
     <section id="spring" className="relative bg-spring-deep py-20 md:py-28 overflow-hidden">
@@ -41,7 +39,7 @@ export default function SpringFeature() {
 
       <div
         ref={ref}
-        className="max-w-[1200px] mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+        className="max-w-[1200px] mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-start"
       >
         <div className="flex flex-col items-center lg:items-start gap-8">
           <Stat value={100} suffix="%" label="Spring Water Purity" />
@@ -65,6 +63,29 @@ export default function SpringFeature() {
             stinging eyes, just pure, natural water.
           </p>
           <Badge>&#10022; Spring-Certified Natural Water</Badge>
+        </div>
+      </div>
+
+      <div className="max-w-[1200px] mx-auto px-4 md:px-8 mt-12 md:mt-16">
+        <div ref={galleryRef} className="slide-from-right grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div
+            role="img"
+            aria-label="Villa Colmenar resort overview"
+            className="aspect-[4/3] rounded-xl bg-cover bg-center shadow-lg"
+            style={{ backgroundImage: "url('/images/overview.jpg')" }}
+          />
+          <div
+            role="img"
+            aria-label="Pool with evening lights"
+            className="aspect-[4/3] rounded-xl bg-cover bg-center shadow-lg"
+            style={{ backgroundImage: "url('/images/night-lights.jpg')" }}
+          />
+          <div
+            role="img"
+            aria-label="Aerial night view of Villa Colmenar"
+            className="aspect-[4/3] rounded-xl bg-cover bg-center shadow-lg"
+            style={{ backgroundImage: "url('/images/ar-night.jpg')" }}
+          />
         </div>
       </div>
     </section>

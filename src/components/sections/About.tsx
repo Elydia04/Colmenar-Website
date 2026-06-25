@@ -15,6 +15,8 @@ export default function About() {
       >
         <div className="lg:col-span-3 relative reveal-on-scroll">
           <div
+            role="img"
+            aria-label="Natural spring water source at Villa Colmenar"
             className="aspect-[4/3] rounded-2xl bg-cover bg-center shadow-lg"
             style={{ backgroundImage: "url('/images/spring-source.jpg')" }}
           />

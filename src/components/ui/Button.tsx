@@ -12,6 +12,7 @@ interface ButtonProps {
   rel?: string
   onClick?: () => void
   className?: string
+  type?: 'button' | 'submit' | 'reset'
 }
 
 const styles: Record<ButtonVariant, string> = {
@@ -31,6 +32,7 @@ export default function Button({
   rel,
   onClick,
   className = '',
+  type = 'button',
 }: ButtonProps) {
   const cls = `${styles[variant]} inline-flex items-center justify-center gap-2 ${className}`
 
@@ -43,7 +45,7 @@ export default function Button({
   }
 
   return (
-    <button onClick={onClick} className={cls}>
+    <button onClick={onClick} type={type} className={cls}>
       {children}
     </button>
   )

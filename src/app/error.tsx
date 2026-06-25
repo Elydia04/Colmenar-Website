@@ -1,13 +1,18 @@
 'use client'
 
+import { useEffect } from 'react'
 import Button from '@/components/ui/Button'
 
 export default function Error({
+  error,
   reset,
 }: {
   error: Error & { digest?: string }
   reset: () => void
 }) {
+  useEffect(() => {
+    console.error(error)
+  }, [error])
   return (
     <div className="min-h-screen bg-stone flex items-center justify-center px-4">
       <div className="text-center max-w-md">

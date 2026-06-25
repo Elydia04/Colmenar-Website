@@ -75,6 +75,8 @@ export default function Navbar() {
           className="md:hidden flex flex-col gap-1.5 p-2"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
+          aria-expanded={menuOpen}
+          aria-controls="mobile-menu"
         >
           <span className={`block w-6 h-0.5 bg-white transition-all ${menuOpen ? 'rotate-45 translate-y-2' : ''}`} />
           <span className={`block w-6 h-0.5 bg-white transition-all ${menuOpen ? 'opacity-0' : ''}`} />
@@ -83,6 +85,9 @@ export default function Navbar() {
       </div>
 
       <div
+        id="mobile-menu"
+        role="region"
+        aria-label="Mobile navigation"
         className={`md:hidden bg-stone/98 backdrop-blur-md transition-all overflow-hidden ${
           menuOpen ? 'max-h-80' : 'max-h-0'
         }`}
@@ -101,16 +106,6 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
-          <Link
-            href="/book"
-            className="bg-sun text-stone font-body font-medium rounded-full px-5 py-2 text-center text-sm"
-            onClick={(e) => {
-              setMenuOpen(false)
-              handleNav(e, '/book')
-            }}
-          >
-            Book a Dip
-          </Link>
         </div>
       </div>
     </nav>

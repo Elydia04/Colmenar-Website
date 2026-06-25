@@ -37,15 +37,15 @@ export default function Contact() {
 
           <div className="space-y-4 font-body text-base text-white/70">
             <div className="flex items-start gap-3">
-              <span className="text-leaf mt-1">&#9906;</span>
+              <span className="text-leaf mt-1" aria-hidden="true">&#9906;</span>
               <span>Tambo Kulit, Indang, Cavite</span>
             </div>
             <div className="flex items-start gap-3">
-              <span className="text-leaf mt-1">&#9742;</span>
+              <span className="text-leaf mt-1" aria-hidden="true">&#9742;</span>
               <span>(046) 123-4567 / 0917-123-4567</span>
             </div>
             <div className="flex items-start gap-3">
-              <span className="text-leaf mt-1">&#9993;</span>
+              <span className="text-leaf mt-1" aria-hidden="true">&#9993;</span>
               <span>hello@villacolmenar.com</span>
             </div>
           </div>

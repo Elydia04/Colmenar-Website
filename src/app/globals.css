@@ -56,6 +56,24 @@ html {
   100% { transform: translateX(4px); }
 }
 
+@keyframes slideFromRight {
+  0% { opacity: 0; transform: translateX(120px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+.slide-from-right {
+  opacity: 0;
+}
+
+.slide-from-right.revealed > * {
+  opacity: 0;
+  animation: slideFromRight 0.7s ease forwards;
+}
+
+.slide-from-right.revealed > *:nth-child(1) { animation-delay: 0ms; }
+.slide-from-right.revealed > *:nth-child(2) { animation-delay: 150ms; }
+.slide-from-right.revealed > *:nth-child(3) { animation-delay: 300ms; }
+
 @keyframes dropletFloat {
   0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.6; }
   50% { transform: translateY(-20px) rotate(8deg); opacity: 1; }

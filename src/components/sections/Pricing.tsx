@@ -100,7 +100,7 @@ export default function Pricing() {
               <ul className="space-y-2 mb-8 flex-1">
                 {pkg.features.map((f) => (
                   <li key={f} className="flex items-start gap-2 font-body text-sm">
-                    <span className="text-leaf mt-0.5">&#10003;</span>
+                    <span className="text-leaf mt-0.5" aria-hidden="true">&#10003;</span>
                     <span className={pkg.featured ? 'text-spring-foam/90' : 'text-stone/70'}>
                       {f}
                     </span>

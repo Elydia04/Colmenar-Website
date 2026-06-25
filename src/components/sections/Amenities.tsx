@@ -32,12 +32,14 @@ export default function Amenities() {
             >
               {a.img ? (
                 <div
+                  role="img"
+                  aria-label={a.title}
                   className="h-40 bg-cover bg-center"
                   style={{ backgroundImage: `url(${a.img})` }}
                 />
               ) : (
                 <div className="h-40 bg-gradient-to-br from-spring-foam to-spring-pale flex items-center justify-center">
-                  <span className="text-4xl text-spring-deep/40">&#10022;</span>
+                  <span className="text-4xl text-spring-deep/40" aria-hidden="true">&#10022;</span>
                 </div>
               )}
               <div className="p-6">

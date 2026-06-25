@@ -35,15 +35,16 @@ export default function GalleryPage() {
             <button
               key={i}
               onClick={() => setLightbox(img)}
+              aria-haspopup="dialog"
+              aria-label={img.caption}
               className="break-inside-avoid rounded-xl overflow-hidden group relative block w-full text-left cursor-pointer"
             >
               <div
+                role="img"
+                aria-label={img.caption}
                 className="aspect-[4/3] bg-cover bg-center transition-all duration-400 group-hover:-translate-y-0.5 group-hover:shadow-xl"
                 style={{ backgroundImage: `url(${img.src})` }}
               />
-              <p className="absolute bottom-0 left-0 right-0 p-4 text-white font-body text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-400 bg-gradient-to-t from-black/60 to-transparent">
-                {img.caption}
-              </p>
             </button>
           ))}
         </div>
