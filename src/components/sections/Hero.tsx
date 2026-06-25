@@ -89,7 +89,7 @@ export default function Hero() {
             <Button variant="primary" href="/book">
               Book Your Visit
             </Button>
-            <Button variant="ghost" href="#spring">
+            <Button variant="ghost" onClick={() => document.getElementById('spring')?.scrollIntoView({ behavior: 'smooth' })}>
               See the Pool <span className="arrow-down">&darr;</span>
             </Button>
           </div>
