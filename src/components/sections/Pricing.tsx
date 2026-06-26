@@ -57,7 +57,7 @@ function CursorGlow({
   return (
     <div
       ref={ref}
-      className="relative rounded-2xl"
+      className="relative overflow-hidden rounded-2xl"
       onMouseMove={(e) => {
         const rect = ref.current?.getBoundingClientRect()
         if (rect) setPos({ x: e.clientX - rect.left, y: e.clientY - rect.top })
@@ -87,7 +87,7 @@ function CursorGlow({
 
 export default function Pricing() {
   return (
-    <section className="bg-white py-20 md:py-28">
+    <section className="bg-white py-10 md:py-12">
       <div className="max-w-[1200px] mx-auto px-4 md:px-8 text-center">
         <p className="font-mono text-xs uppercase tracking-widest text-leaf mb-4">
           Entrance &amp; Packages
@@ -98,67 +98,67 @@ export default function Pricing() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-end">
           {packages.map((pkg) => (
-            <CursorGlow
-              key={pkg.name}
-              color={pkg.featured ? 'rgba(255,255,255,0.35)' : 'rgba(26,122,138,0.25)'}
-            >
-              <div
-                className={`relative rounded-2xl p-8 text-left flex flex-col ${
-                  pkg.featured
-                    ? 'bg-spring-deep text-white scale-105 shadow-xl z-10'
-                    : 'bg-white border border-spring-pale text-stone'
-                }`}
+            <div key={pkg.name} className="relative">
+              {pkg.featured && (
+                <Badge variant="sun" className="absolute -top-3 right-6 z-20">
+                  Most Popular
+                </Badge>
+              )}
+              <CursorGlow
+                color={pkg.featured ? 'rgba(255,255,255,0.35)' : 'rgba(26,122,138,0.25)'}
               >
-                {pkg.featured && (
-                  <Badge variant="sun" className="absolute -top-3 right-6">
-                    Most Popular
-                  </Badge>
-                )}
-
-                <h3
-                  className={`font-display text-xl mb-1 ${
-                    pkg.featured ? 'text-white' : 'text-stone'
+                <div
+                  className={`rounded-2xl p-8 text-left flex flex-col ${
+                    pkg.featured
+                      ? 'bg-spring-deep text-white scale-105 shadow-xl'
+                      : 'bg-white border border-spring-pale text-stone'
                   }`}
                 >
-                  {pkg.name}
-                </h3>
-
-                <div className="flex items-baseline gap-1 mb-6">
-                  <span
-                    className={`font-display text-5xl ${
+                  <h3
+                    className={`font-display text-xl mb-1 ${
                       pkg.featured ? 'text-white' : 'text-stone'
                     }`}
                   >
-                    {pkg.price}
-                  </span>
-                  <span
-                    className={`font-body text-sm ${
-                      pkg.featured ? 'text-spring-foam/70' : 'text-stone/50'
-                    }`}
+                    {pkg.name}
+                  </h3>
+
+                  <div className="flex items-baseline gap-1 mb-6">
+                    <span
+                      className={`font-display text-5xl ${
+                        pkg.featured ? 'text-white' : 'text-stone'
+                      }`}
+                    >
+                      {pkg.price}
+                    </span>
+                    <span
+                      className={`font-body text-sm ${
+                        pkg.featured ? 'text-spring-foam/70' : 'text-stone/50'
+                      }`}
+                    >
+                      {pkg.period}
+                    </span>
+                  </div>
+
+                  <ul className="space-y-2 mb-8 flex-1">
+                    {pkg.features.map((f) => (
+                      <li key={f} className="flex items-start gap-2 font-body text-sm">
+                        <span className="text-leaf mt-0.5" aria-hidden="true">&#10003;</span>
+                        <span className={pkg.featured ? 'text-spring-foam/90' : 'text-stone/70'}>
+                          {f}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <Button
+                    variant={pkg.featured ? 'primary' : 'outline'}
+                    href={`/book?package=${encodeURIComponent(pkg.name)}`}
                   >
-                    {pkg.period}
-                  </span>
+                    Book This
+                  </Button>
                 </div>
-
-                <ul className="space-y-2 mb-8 flex-1">
-                  {pkg.features.map((f) => (
-                    <li key={f} className="flex items-start gap-2 font-body text-sm">
-                      <span className="text-leaf mt-0.5" aria-hidden="true">&#10003;</span>
-                      <span className={pkg.featured ? 'text-spring-foam/90' : 'text-stone/70'}>
-                        {f}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-
-                <Button
-                  variant={pkg.featured ? 'primary' : 'outline'}
-                  href="/book"
-                >
-                  Book This
-                </Button>
-              </div>
-            </CursorGlow>
+              </CursorGlow>
+            </div>
           ))}
         </div>
       </div>

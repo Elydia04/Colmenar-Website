@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, type FormEvent } from 'react'
+import { useState, use, type FormEvent } from 'react'
 import Button from '@/components/ui/Button'
 import Badge from '@/components/ui/Badge'
 import WaveDivider from '@/components/ui/WaveDivider'
@@ -12,7 +12,13 @@ const highlights = [
   { icon: '\u{1F3D8}', label: 'Scenic Views', desc: 'Mediterranean-style architecture' },
 ]
 
-export default function BookPage() {
+export default function BookPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ package?: string }>
+}) {
+  const params = use(searchParams)
+  const preselected = params.package || ''
   const [sent, setSent] = useState(false)
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -196,6 +202,7 @@ export default function BookPage() {
                   <select
                     id="package"
                     name="package"
+                    defaultValue={preselected}
                     className="w-full border border-spring-pale rounded-lg px-4 py-2.5 font-body text-sm text-stone focus:outline-none focus:ring-2 focus:ring-spring-mid focus:border-transparent transition-all"
                   >
                     <option>Day Pass</option>

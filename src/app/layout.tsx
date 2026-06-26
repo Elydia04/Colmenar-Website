@@ -3,6 +3,8 @@ import { Cormorant_Garamond, DM_Sans, DM_Mono } from 'next/font/google'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import ScrollToTop from '@/components/ScrollToTop'
+import BackToTop from '@/components/BackToTop'
+import MobileBookBar from '@/components/MobileBookBar'
 import './globals.css'
 
 const cormorant = Cormorant_Garamond({
@@ -92,6 +94,8 @@ export default function RootLayout({
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
+        <BackToTop />
+        <MobileBookBar />
       </body>
     </html>
   )

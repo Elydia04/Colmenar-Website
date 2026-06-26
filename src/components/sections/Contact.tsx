@@ -1,6 +1,7 @@
 'use client'
 
 import Button from '@/components/ui/Button'
+import ShareButtons from '@/components/ShareButtons'
 
 export default function Contact() {
   return (
@@ -58,6 +59,8 @@ export default function Contact() {
           <Button variant="primary" href="https://maps.google.com/?q=Villa+Colmenar+Natural+Spring+Resort,+Tambo+Kulit,+Indang,+Cavite" target="_blank">
             Get Directions
           </Button>
+
+          <ShareButtons />
         </div>
       </div>
     </section>

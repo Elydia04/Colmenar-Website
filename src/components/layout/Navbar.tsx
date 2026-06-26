@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
@@ -16,6 +16,35 @@ export default function Navbar() {
   const pathname = usePathname()
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState('')
+  const observerRef = useRef<IntersectionObserver | null>(null)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 80)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  useEffect(() => {
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id)
+          }
+        }
+      },
+      { rootMargin: '-40% 0px -55% 0px' }
+    )
+
+    const ids = ['spring', 'amenities']
+    ids.forEach((id) => {
+      const el = document.getElementById(id)
+      if (el) observerRef.current?.observe(el)
+    })
+
+    return () => observerRef.current?.disconnect()
+  }, [])
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 80)
@@ -61,16 +90,25 @@ export default function Navbar() {
         </Link>
 
         <div className="hidden md:flex items-center gap-3">
-          {links.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              onClick={(e) => handleNav(e, link.href)}
-              className="font-body text-sm text-white bg-spring-deep/70 hover:bg-spring-deep/90 backdrop-blur-sm rounded-full px-4 py-1.5 transition-all"
-            >
-              {link.label}
-            </Link>
-          ))}
+          {links.map((link) => {
+            const isActive = link.href.includes('#')
+              ? link.href.split('#')[1] === activeSection
+              : pathname === link.href
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={(e) => handleNav(e, link.href)}
+                className={`font-body text-sm backdrop-blur-sm rounded-full px-4 py-1.5 transition-all ${
+                  isActive
+                    ? 'bg-sun text-stone'
+                    : 'text-white bg-spring-deep/70 hover:bg-spring-deep/90'
+                }`}
+              >
+                {link.label}
+              </Link>
+            )
+          })}
           <Link
             href="/book"
             onClick={(e) => handleNav(e, '/book')}
