@@ -88,7 +88,7 @@ export default function Testimonials() {
 
   return (
     <section className="bg-cream py-20 md:py-28">
-      <div className="max-w-[1200px] mx-auto px-4 md:px-8">
+      <div className="max-w-300 mx-auto px-4 md:px-8">
         <p className="font-mono text-xs uppercase tracking-widest text-leaf text-center mb-4">
           What Guests Say
         </p>
@@ -122,7 +122,7 @@ export default function Testimonials() {
                 </div>
               </div>
               <Stars count={t.rating} />
-              <p className="font-display italic text-stone text-base leading-relaxed mt-4">
+              <p className="font-display italic text-black text-base leading-relaxed mt-4">
                 &ldquo;{translate && t.quoteEn ? t.quoteEn : t.quote}&rdquo;
               </p>
               {t.source === 'Blog Guest' && (
