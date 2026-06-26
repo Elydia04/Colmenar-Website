@@ -26,7 +26,7 @@ export default function GalleryStrip() {
         </h2>
       </div>
 
-      <div className="relative w-full overflow-hidden">
+      <div className="relative w-full marquee-wrapper">
         <div className="flex gap-4 marquee-track">
           {[...photos, ...photos].map((photo, i) => (
             <button

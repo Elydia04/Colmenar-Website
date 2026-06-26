@@ -180,19 +180,38 @@ a:hover .link-arrow {
   100% { transform: translateX(-50%); }
 }
 
-.marquee-track {
-  animation: marquee 40s linear infinite;
-  will-change: transform;
+.marquee-wrapper {
+  overflow: hidden;
 }
 
-@media (max-width: 640px) {
-  .marquee-track {
-    animation-duration: 20s;
-  }
+.marquee-track {
+  will-change: transform;
 }
 
 .marquee-track:hover {
   animation-play-state: paused;
+}
+
+@media (min-width: 641px) {
+  .marquee-track {
+    animation: marquee 40s linear infinite;
+  }
+}
+
+@media (max-width: 640px) {
+  .marquee-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .marquee-track {
+    scroll-snap-type: x mandatory;
+    flex-wrap: nowrap;
+  }
+
+  .marquee-track > * {
+    scroll-snap-align: start;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
