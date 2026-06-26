@@ -185,6 +185,12 @@ a:hover .link-arrow {
   will-change: transform;
 }
 
+@media (max-width: 640px) {
+  .marquee-track {
+    animation-duration: 20s;
+  }
+}
+
 .marquee-track:hover {
   animation-play-state: paused;
 }
