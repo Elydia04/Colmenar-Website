@@ -1,19 +1,13 @@
 'use client'
 
-import { useScrollReveal } from '@/lib/useScrollReveal'
 import Badge from '@/components/ui/Badge'
 import Link from 'next/link'
 
 export default function About() {
-  const ref = useScrollReveal()
-
   return (
     <section className="bg-cream py-20 md:py-28">
-      <div
-        ref={ref}
-        className="max-w-[1200px] mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-5 gap-8 md:gap-12 items-center"
-      >
-        <div className="lg:col-span-3 relative reveal-on-scroll">
+      <div className="max-w-[1200px] mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-5 gap-8 md:gap-12 items-center">
+        <div className="lg:col-span-3 relative">
           <div
             role="img"
             aria-label="Natural spring water source at Villa Colmenar"
@@ -25,7 +19,7 @@ export default function About() {
           </Badge>
         </div>
 
-        <div className="lg:col-span-2 space-y-6 reveal-on-scroll">
+        <div className="lg:col-span-2 space-y-6">
           <p className="font-mono text-xs uppercase tracking-widest text-leaf">
             Our Story
           </p>
