@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import { useScrollReveal } from '@/lib/useScrollReveal'
 import Lightbox from '@/components/ui/Lightbox'
 import Link from 'next/link'
 
@@ -14,27 +13,28 @@ const photos = [
 ]
 
 export default function GalleryStrip() {
-  const ref = useScrollReveal()
   const [lightbox, setLightbox] = useState<{ src: string; caption: string } | null>(null)
 
   return (
-    <section className="bg-stone py-20 md:py-28">
-      <div ref={ref} className="max-w-[1200px] mx-auto px-4 md:px-8">
+    <section className="bg-stone py-20 md:py-28 overflow-hidden">
+      <div className="max-w-[1200px] mx-auto px-4 md:px-8 mb-10">
         <p className="font-mono text-xs uppercase tracking-widest text-spring-mid mb-4">
           In &amp; Around the Resort
         </p>
-        <h2 className="font-display text-4xl md:text-5xl font-semibold text-white mb-10">
+        <h2 className="font-display text-4xl md:text-5xl font-semibold text-white">
           See It Before You Feel It
         </h2>
+      </div>
 
-        <div className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory md:grid md:grid-cols-3 md:gap-4 lg:grid-cols-5">
-          {photos.map((photo, i) => (
+      <div className="relative w-full overflow-hidden">
+        <div className="flex gap-4 marquee-track">
+          {[...photos, ...photos].map((photo, i) => (
             <button
               key={i}
               onClick={() => setLightbox(photo)}
               aria-haspopup="dialog"
               aria-label={photo.caption}
-              className="relative group flex-shrink-0 w-[280px] md:w-auto snap-start aspect-[4/3] rounded-xl overflow-hidden cursor-pointer text-left"
+              className="relative group flex-shrink-0 w-[380px] aspect-[4/3] rounded-xl overflow-hidden cursor-pointer text-left"
             >
               <div
                 role="img"
@@ -48,15 +48,15 @@ export default function GalleryStrip() {
             </button>
           ))}
         </div>
+      </div>
 
-        <div className="mt-8 text-right">
-          <Link
-            href="/gallery"
-            className="font-body text-sun hover:brightness-110 transition-all"
-          >
-            View Full Gallery <span className="link-arrow">&rarr;</span>
-          </Link>
-        </div>
+      <div className="max-w-[1200px] mx-auto px-4 md:px-8 mt-8 text-right">
+        <Link
+          href="/gallery"
+          className="font-body text-sun hover:brightness-110 transition-all"
+        >
+          View Full Gallery <span className="link-arrow">&rarr;</span>
+        </Link>
       </div>
 
       {lightbox && (

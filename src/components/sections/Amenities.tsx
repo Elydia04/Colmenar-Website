@@ -1,7 +1,5 @@
 'use client'
 
-import { useScrollReveal } from '@/lib/useScrollReveal'
-
 const amenities = [
   { img: '/images/hero-pool.jpg', title: 'Natural Spring Pool', desc: 'Main pool, spring-fed, open daily' },
   { img: '/images/spring-source.jpg', title: 'Lush Garden Grounds', desc: 'Tropical landscaping, shaded rest areas' },
@@ -9,14 +7,15 @@ const amenities = [
   { img: '/images/night-pool.jpg', title: 'Poolside Dining', desc: 'Food & beverages on site' },
   { img: null, title: 'Ample Parking', desc: 'Free secure parking' },
   { img: '/images/night-aerial.jpg', title: 'Scenic Views', desc: 'Hills + colonial architecture backdrop' },
+  { img: null, title: 'Kiddie Pool', desc: 'Shallow pool safe for children' },
+  { img: null, title: 'Dirty Kitchen', desc: 'Guest cooking area available' },
+  { img: null, title: 'Karaoke / Videoke', desc: 'Sing with family and friends' },
 ]
 
 export default function Amenities() {
-  const ref = useScrollReveal()
-
   return (
     <section id="amenities" className="bg-white py-20 md:py-28">
-      <div ref={ref} className="max-w-[1200px] mx-auto px-4 md:px-8 text-center">
+      <div className="max-w-[1200px] mx-auto px-4 md:px-8 text-center">
         <p className="font-mono text-xs uppercase tracking-widest text-leaf mb-4">
           What&apos;s Included
         </p>
@@ -24,7 +23,7 @@ export default function Amenities() {
           Everything You Need to Unwind
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {amenities.map((a) => (
             <div
               key={a.title}
