@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import Lightbox from '@/components/ui/Lightbox'
 import Link from 'next/link'
 
@@ -14,6 +14,15 @@ const photos = [
 
 export default function GalleryStrip() {
   const [lightbox, setLightbox] = useState<{ src: string; caption: string } | null>(null)
+  const trackRef = useRef<HTMLDivElement>(null)
+
+  const pauseAnimation = () => {
+    if (trackRef.current) trackRef.current.style.animationPlayState = 'paused'
+  }
+
+  const resumeAnimation = () => {
+    if (trackRef.current) trackRef.current.style.animationPlayState = 'running'
+  }
 
   return (
     <section className="bg-stone py-20 md:py-28 overflow-hidden">
@@ -27,7 +36,15 @@ export default function GalleryStrip() {
       </div>
 
       <div className="relative w-full marquee-wrapper">
-        <div className="flex gap-4 marquee-track">
+        <div
+          ref={trackRef}
+          className="flex gap-4 marquee-track"
+          onTouchStart={pauseAnimation}
+          onTouchEnd={resumeAnimation}
+          onMouseDown={pauseAnimation}
+          onMouseUp={resumeAnimation}
+          onMouseLeave={resumeAnimation}
+        >
           {[...photos, ...photos].map((photo, i) => (
             <button
               key={i}

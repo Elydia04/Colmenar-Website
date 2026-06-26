@@ -192,10 +192,8 @@ a:hover .link-arrow {
   animation-play-state: paused;
 }
 
-@media (min-width: 641px) {
-  .marquee-track {
-    animation: marquee 40s linear infinite;
-  }
+.marquee-track {
+  animation: marquee 50s linear infinite;
 }
 
 @media (max-width: 640px) {
@@ -206,7 +204,7 @@ a:hover .link-arrow {
   }
 
   .marquee-track {
-    animation: none;
+    animation-duration: 25s;
     flex-wrap: nowrap;
   }
 
