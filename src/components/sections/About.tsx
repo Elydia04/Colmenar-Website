@@ -6,12 +6,12 @@ import Link from 'next/link'
 export default function About() {
   return (
     <section className="bg-cream py-20 md:py-28">
-      <div className="max-w-[1200px] mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-5 gap-8 md:gap-12 items-center">
+      <div className="max-w-300 mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-5 gap-8 md:gap-12 items-center">
         <div className="lg:col-span-3 relative">
           <div
             role="img"
             aria-label="Natural spring water source at Villa Colmenar"
-            className="aspect-[4/3] rounded-2xl bg-cover bg-center shadow-lg"
+            className="aspect-4/3 rounded-2xl bg-cover bg-center shadow-lg"
             style={{ backgroundImage: "url('/images/spring-source.jpg')" }}
           />
           <Badge className="absolute -bottom-3 -right-3 shadow-md">
