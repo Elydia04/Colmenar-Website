@@ -17,6 +17,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('')
   const observerRef = useRef<IntersectionObserver | null>(null)
+  const visibleRef = useRef<Record<string, boolean>>({})
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 80)
@@ -28,10 +29,12 @@ export default function Navbar() {
     observerRef.current = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id)
-          }
+          visibleRef.current[entry.target.id] = entry.isIntersecting
         }
+        const visible = Object.entries(visibleRef.current)
+          .filter(([, v]) => v)
+          .map(([k]) => k)
+        setActiveSection(visible.length > 0 ? visible[0] : '')
       },
       { rootMargin: '-40% 0px -55% 0px' }
     )
