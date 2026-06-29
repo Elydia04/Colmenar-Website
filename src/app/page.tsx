@@ -8,19 +8,28 @@ import FAQ from '@/components/sections/FAQ'
 import NearbyAttractions from '@/components/sections/NearbyAttractions'
 import Pricing from '@/components/sections/Pricing'
 import Contact from '@/components/sections/Contact'
+import SectionDivider from '@/components/ui/SectionDivider'
 
 export default function Home() {
   return (
     <>
       <Hero />
       <SpringFeature />
+      <SectionDivider />
       <About />
+      <SectionDivider />
       <Amenities />
+      <SectionDivider />
       <GalleryStrip />
+      <SectionDivider />
       <Testimonials />
+      <SectionDivider />
       <FAQ />
+      <SectionDivider />
       <NearbyAttractions />
+      <SectionDivider />
       <Pricing />
+      <SectionDivider />
       <Contact />
     </>
   )

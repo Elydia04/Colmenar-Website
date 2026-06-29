@@ -54,14 +54,14 @@ export default function NearbyAttractions() {
           {attractions.map((a) => (
             <div
               key={a.name}
-              className="border border-spring-pale rounded-2xl p-6 hover:-translate-y-1 hover:shadow-lg hover:border-spring-mid transition-all duration-300"
+              className="border border-spring-pale rounded-2xl p-6 group overflow-hidden hover:-translate-y-1 hover:shadow-lg hover:border-spring-mid transition-all duration-300"
             >
               <div className="h-40 relative -mx-6 -mt-6 mb-4 overflow-hidden">
                 <Image
                   src={a.img}
                   alt={a.name}
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
               </div>

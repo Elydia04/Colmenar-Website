@@ -9,7 +9,6 @@ const links = [
   { label: 'Pool', href: '/#spring' },
   { label: 'Amenities', href: '/#amenities' },
   { label: 'Gallery', href: '/gallery' },
-  { label: 'Book Now', href: '/book' },
 ]
 
 export default function Navbar() {

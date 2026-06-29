@@ -100,7 +100,7 @@ export default function Pricing() {
           Simple, Honest Pricing
         </h2>
 
-        <div ref={ref} className="grid grid-cols-1 md:grid-cols-3 gap-6 items-end stagger-children">
+        <div ref={ref} className="grid grid-cols-1 md:grid-cols-3 gap-6 stagger-children">
           {packages.map((pkg) => (
             <div key={pkg.name} className="relative">
               {pkg.featured && (
@@ -112,10 +112,10 @@ export default function Pricing() {
                 color={pkg.featured ? 'rgba(255,255,255,0.35)' : 'rgba(26,122,138,0.25)'}
               >
                 <div
-                  className={`rounded-2xl p-8 text-left flex flex-col ${
+                  className={`rounded-2xl text-left flex flex-col ${
                     pkg.featured
-                      ? 'bg-spring-deep text-white scale-105 shadow-xl'
-                      : 'bg-white border border-spring-pale text-stone'
+                      ? 'bg-spring-deep text-white shadow-xl p-10'
+                      : 'bg-white border border-spring-pale text-stone p-8'
                   }`}
                 >
                   <h3
