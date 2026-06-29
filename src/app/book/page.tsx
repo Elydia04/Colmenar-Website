@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, use, type FormEvent } from 'react'
+import Image from 'next/image'
 import Button from '@/components/ui/Button'
 import Badge from '@/components/ui/Badge'
 import WaveDivider from '@/components/ui/WaveDivider'
@@ -52,11 +53,13 @@ export default function BookPage({
   return (
     <>
       <section className="relative h-64 md:h-80 overflow-hidden">
-        <div
-          role="img"
-          aria-label="Villa Colmenar pool at night"
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/images/night-pool.jpg')" }}
+        <Image
+          src="/images/night-pool.jpg"
+          alt="Villa Colmenar pool at night"
+          fill
+          priority
+          className="object-cover"
+          sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-spring-deep/80 via-spring-deep/60 to-spring-deep/90" />
         <WaveDivider color="#f5f0e7" />

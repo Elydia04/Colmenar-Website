@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import Image from 'next/image'
 import Button from '@/components/ui/Button'
 
 const droplets = [
@@ -33,11 +34,13 @@ export default function Hero() {
 
   return (
     <section ref={rootRef} className="hero-root relative h-screen w-full overflow-hidden">
-      <div
-        role="img"
-        aria-label="Villa Colmenar natural spring pool surrounded by tropical gardens"
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: "url('/images/hero-pool.jpg')" }}
+      <Image
+        src="/images/hero-pool.jpg"
+        alt="Villa Colmenar natural spring pool surrounded by tropical gardens"
+        fill
+        priority
+        className="object-cover"
+        sizes="100vw"
       />
 
       <div className="absolute inset-0 bg-linear-to-t from-spring-deep/70 to-transparent" />
@@ -80,7 +83,7 @@ export default function Hero() {
           <p
             className="hero-sub font-body text-base md:text-lg text-white/80 leading-relaxed max-w-150 mx-auto mb-8"
           >
-            Fed by underground springs, our pool stays crystal-clear and naturally cool &mdash; no chemicals, just nature.
+            Fed by underground springs, our pool stays crystal-clear and naturally cool &mdash; straight from the earth, always refreshing.
           </p>
 
           <div

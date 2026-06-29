@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useCallback } from 'react'
+import Image from 'next/image'
 import { useScrollReveal } from '@/lib/useScrollReveal'
 import { useCountUp } from '@/lib/useCountUp'
 import Badge from '@/components/ui/Badge'
@@ -97,11 +98,12 @@ export default function SpringFeature() {
                             : 'blur(4px) brightness(0.4) saturate(0.15)',
                     }}
                   >
-                    <div
-                      role="img"
-                      aria-label={img.caption}
-                      className="w-full h-full bg-cover bg-center"
-                      style={{ backgroundImage: `url('${img.src}')` }}
+                    <Image
+                      src={img.src}
+                      alt={img.caption}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 640px) 100vw, 50vw"
                     />
                   </button>
                 )
@@ -138,17 +140,19 @@ export default function SpringFeature() {
                 </svg>
               }
             />
-            <Stat
-              value={0}
-              suffix=""
-              label="Added Chemicals"
-              icon={
+            <div className="relative flex flex-col items-center w-full">
+              <RippleRing>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-full h-full">
-                  <path d="M17 8c-5 0-13 8-13 8s8-2 12-4c2-1 4-4 4-4-2 0-6-2-10-2z" />
-                  <path d="M9 15c-1.5 1.5-3 4-3 4s4-1 6-2.5" />
+                  <path d="M2 18l4-8 3 5 3-7 4 6 3-3 3 4" />
+                  <path d="M2 18h20" />
+                  <path d="M12 3v3" />
                 </svg>
-              }
-            />
+              </RippleRing>
+              <span className="font-display text-4xl md:text-5xl font-semibold text-white mt-4 leading-tight">
+                Deep Spring
+              </span>
+              <span className="font-body text-sm text-spring-foam/80 mt-1">Source</span>
+            </div>
             <Stat
               value={24}
               suffix="°C"
@@ -174,10 +178,10 @@ export default function SpringFeature() {
               Into Your Day
             </h2>
             <p className="font-body text-base md:text-lg text-spring-foam/80 leading-relaxed">
-              The pool is fed by a natural underground spring, keeping the water
-              fresh, cool, and completely chemical-free. Families feel the
-              difference the moment they step in &mdash; no chlorine smell, no
-              stinging eyes, just pure, natural water.
+The pool is fed by a natural underground spring, keeping the water
+fresh, cool, and naturally pure. Families feel the
+difference the moment they step in &mdash; crisp, refreshing, and
+straight from the earth.
             </p>
             <Badge>&#10022; Spring-Certified Natural Water</Badge>
           </div>

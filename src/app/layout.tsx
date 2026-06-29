@@ -59,7 +59,7 @@ export default function RootLayout({
     '@type': 'Resort',
     name: 'Villa Colmenar',
     description:
-      'Natural spring water pool resort in Indang, Cavite. Crystal-clear, chemical-free spring-fed pool.',
+      'Natural spring water pool resort in Indang, Cavite. Crystal-clear spring-fed pool with naturally pure water.',
     url: 'https://villacolmenar.com',
     telephone: '(046) 123-4567',
     address: {

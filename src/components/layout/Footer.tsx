@@ -10,7 +10,7 @@ export default function Footer() {
               Villa Colmenar
             </h3>
             <p className="font-body text-sm text-white/60 leading-relaxed">
-              Natural spring water pool resort in Indang, Cavite. Cool, clear, chemical-free.
+              Natural spring water pool resort in Indang, Cavite. Cool, clear, and naturally pure.
             </p>
           </div>
 
@@ -38,9 +38,6 @@ export default function Footer() {
             <div className="flex flex-col gap-2">
               <a href="https://www.facebook.com/VillaColmenarResort" target="_blank" rel="noopener noreferrer" className="font-body text-sm text-white/60 hover:text-white transition-colors">
                 Facebook
-              </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="font-body text-sm text-white/60 hover:text-white transition-colors">
-                Instagram
               </a>
             </div>
           </div>

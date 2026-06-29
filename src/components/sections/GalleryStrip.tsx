@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useRef } from 'react'
+import Image from 'next/image'
 import Lightbox from '@/components/ui/Lightbox'
 import Link from 'next/link'
 
@@ -53,11 +54,12 @@ export default function GalleryStrip() {
               aria-label={photo.caption}
               className="relative group flex-shrink-0 w-[380px] aspect-[4/3] rounded-xl overflow-hidden cursor-pointer text-left"
             >
-              <div
-                role="img"
-                aria-label={photo.caption}
-                className="absolute inset-0 bg-cover bg-center transition-all duration-400 group-hover:-translate-y-0.5 group-hover:shadow-xl"
-                style={{ backgroundImage: `url(${photo.src})` }}
+              <Image
+                src={photo.src}
+                alt={photo.caption}
+                fill
+                className="object-cover transition-all duration-400 group-hover:-translate-y-0.5 group-hover:shadow-xl"
+                sizes="380px"
               />
               <p className="absolute bottom-0 left-0 right-0 p-3 text-white font-body text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-400 bg-gradient-to-t from-black/60 to-transparent pt-6">
                 {photo.caption}

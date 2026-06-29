@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import Badge from '@/components/ui/Badge'
 import Link from 'next/link'
 
@@ -8,12 +9,15 @@ export default function About() {
     <section className="bg-cream py-20 md:py-28">
       <div className="max-w-300 mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-5 gap-8 md:gap-12 items-center">
         <div className="lg:col-span-3 relative">
-          <div
-            role="img"
-            aria-label="Natural spring water source at Villa Colmenar"
-            className="aspect-4/3 rounded-2xl bg-cover bg-center shadow-lg"
-            style={{ backgroundImage: "url('/images/spring-source.jpg')" }}
-          />
+          <div className="aspect-4/3 rounded-2xl overflow-hidden shadow-lg relative">
+            <Image
+              src="/images/spring-source.jpg"
+              alt="Natural spring water source at Villa Colmenar"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 60vw"
+            />
+          </div>
           <Badge className="absolute -bottom-3 -right-3 shadow-md">
             Since 2005
           </Badge>

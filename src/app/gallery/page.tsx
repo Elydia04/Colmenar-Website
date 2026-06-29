@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import Lightbox from '@/components/ui/Lightbox'
 
 const images = [
@@ -39,12 +40,15 @@ export default function GalleryPage() {
               aria-label={img.caption}
               className="break-inside-avoid rounded-xl overflow-hidden group relative block w-full text-left cursor-pointer"
             >
-              <div
-                role="img"
-                aria-label={img.caption}
-                className="aspect-[4/3] bg-cover bg-center transition-all duration-400 group-hover:-translate-y-0.5 group-hover:shadow-xl"
-                style={{ backgroundImage: `url(${img.src})` }}
-              />
+              <div className="aspect-[4/3] relative overflow-hidden">
+                <Image
+                  src={img.src}
+                  alt={img.caption}
+                  fill
+                  className="object-cover transition-all duration-400 group-hover:-translate-y-0.5 group-hover:shadow-xl"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
+              </div>
             </button>
           ))}
         </div>

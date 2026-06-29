@@ -1,5 +1,7 @@
 'use client'
 
+import Image from 'next/image'
+
 const attractions = [
   {
     name: 'Tagaytay Ridge',
@@ -50,12 +52,15 @@ export default function NearbyAttractions() {
               key={a.name}
               className="border border-spring-pale rounded-2xl p-6 hover:-translate-y-1 hover:shadow-lg hover:border-spring-mid transition-all duration-300"
             >
-              <div
-                role="img"
-                aria-label={a.name}
-                className="h-40 bg-cover bg-center -mx-6 -mt-6 mb-4"
-                style={{ backgroundImage: `url(${a.img})` }}
-              />
+              <div className="h-40 relative -mx-6 -mt-6 mb-4 overflow-hidden">
+                <Image
+                  src={a.img}
+                  alt={a.name}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
+              </div>
               <h3 className="font-display text-xl font-semibold text-stone mb-2">{a.name}</h3>
               <p className="font-body text-sm text-stone/70 leading-relaxed">{a.desc}</p>
             </div>

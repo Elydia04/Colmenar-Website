@@ -8,8 +8,8 @@ const faqs = [
     a: 'We are open Monday to Friday from 8:00 AM to 5:00 PM, and weekends from 7:00 AM to 7:00 PM. Overnight stays are available by reservation.',
   },
   {
-    q: 'Is the pool really chemical-free?',
-    a: 'Yes! Our pool is fed by a natural underground spring. The water is fresh, cool, and completely free of chlorine and other chemicals.',
+    q: 'What makes the water so pure?',
+    a: 'Our pool is fed by a natural underground spring, so the water stays fresh, cool, and naturally pure — straight from the earth with no additives needed.',
   },
   {
     q: 'Do you allow outside food?',

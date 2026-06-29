@@ -46,12 +46,6 @@ export default function Navbar() {
     return () => observerRef.current?.disconnect()
   }, [])
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 80)
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
-
   const handleNav = useCallback(
     (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
       if (href.includes('#')) {
