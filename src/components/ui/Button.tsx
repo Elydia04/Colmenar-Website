@@ -17,9 +17,9 @@ interface ButtonProps {
 
 const styles: Record<ButtonVariant, string> = {
   primary:
-    'bg-sun text-stone font-body font-medium rounded-full px-6 py-3 hover:brightness-110 transition-all duration-300',
+    'bg-sun text-stone font-body font-medium rounded-full px-6 py-3 hover:brightness-110 transition-all duration-300 btn-glow',
   ghost:
-    'text-white border-2 border-white/80 font-body font-medium rounded-full px-6 py-3 hover:bg-white/10 transition-all duration-300',
+    'text-white border-2 border-white/80 font-body font-medium rounded-full px-6 py-3 hover:bg-white/10 transition-all duration-300 btn-ghost-underline',
   outline:
     'text-spring-deep border-2 border-spring-deep font-body font-medium rounded-full px-6 py-3 hover:bg-spring-deep hover:text-white transition-all duration-300',
 }

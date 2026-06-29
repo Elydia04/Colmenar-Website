@@ -26,6 +26,9 @@ export function useCountUp(end: number, duration = 1500) {
 
           if (progress < 1) {
             animationId = requestAnimationFrame(animate)
+          } else {
+            el.classList.add('count-complete')
+            setTimeout(() => el.classList.remove('count-complete'), 800)
           }
         }
 

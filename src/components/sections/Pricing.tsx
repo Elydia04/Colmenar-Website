@@ -1,8 +1,10 @@
 'use client'
 
 import { useRef, useState } from 'react'
+import { useScrollReveal } from '@/lib/useScrollReveal'
 import Button from '@/components/ui/Button'
 import Badge from '@/components/ui/Badge'
+import AccentTick from '@/components/ui/AccentTick'
 
 const packages = [
   {
@@ -86,17 +88,19 @@ function CursorGlow({
 }
 
 export default function Pricing() {
+  const ref = useScrollReveal()
   return (
     <section className="bg-white py-10 md:py-12">
       <div className="max-w-[1200px] mx-auto px-4 md:px-8 text-center">
         <p className="font-mono text-xs uppercase tracking-widest text-leaf mb-4">
           Entrance &amp; Packages
         </p>
+        <AccentTick className="mx-auto" />
         <h2 className="font-display text-4xl md:text-5xl font-semibold text-stone mb-12">
           Simple, Honest Pricing
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-end">
+        <div ref={ref} className="grid grid-cols-1 md:grid-cols-3 gap-6 items-end stagger-children">
           {packages.map((pkg) => (
             <div key={pkg.name} className="relative">
               {pkg.featured && (

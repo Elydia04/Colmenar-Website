@@ -7,7 +7,7 @@ import Badge from '@/components/ui/Badge'
 import WaveDivider from '@/components/ui/WaveDivider'
 
 const highlights = [
-  { icon: '\u2699', label: 'Spring-fed Pool', desc: 'No chemicals, just nature' },
+  { icon: '\u2699', label: 'Spring-fed Pool', desc: 'Naturally pure, always refreshing' },
   { icon: '\u2600', label: 'Open Daily', desc: '8 AM \u2013 5 PM (Weekdays), 7 AM \u2013 7 PM (Weekends)' },
   { icon: '\u26FA', label: 'Family-Friendly', desc: 'Cottages, gardens, and plenty of space' },
   { icon: '\u{1F3D8}', label: 'Scenic Views', desc: 'Mediterranean-style architecture' },

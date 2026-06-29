@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import AccentTick from '@/components/ui/AccentTick'
 
 type Testimonial = {
   initials: string
@@ -92,7 +93,8 @@ export default function Testimonials() {
         <p className="font-mono text-xs uppercase tracking-widest text-leaf text-center mb-4">
           What Guests Say
         </p>
-        <h2 className="font-display text-4xl md:text-5xl font-semibold text-stone text-center mb-4">
+        <AccentTick className="mx-auto" />
+        <h2 className="font-display text-4xl md:text-5xl font-semibold text-stone text-center mb-10">
           Real Stories from Real Families
         </h2>
 

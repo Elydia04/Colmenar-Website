@@ -45,7 +45,7 @@ export default function GalleryPage() {
                   src={img.src}
                   alt={img.caption}
                   fill
-                  className="object-cover transition-all duration-400 group-hover:-translate-y-0.5 group-hover:shadow-xl"
+                  className="object-cover transition-all duration-400 group-hover:-translate-y-0.5 group-hover:shadow-xl group-hover:scale-105"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
               </div>

@@ -58,7 +58,7 @@ export default function GalleryStrip() {
                 src={photo.src}
                 alt={photo.caption}
                 fill
-                className="object-cover transition-all duration-400 group-hover:-translate-y-0.5 group-hover:shadow-xl"
+                className="object-cover transition-all duration-400 group-hover:-translate-y-0.5 group-hover:shadow-xl group-hover:scale-105"
                 sizes="380px"
               />
               <p className="absolute bottom-0 left-0 right-0 p-3 text-white font-body text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-400 bg-gradient-to-t from-black/60 to-transparent pt-6">
