@@ -64,7 +64,7 @@ export default function Hero() {
         </svg>
       ))}
 
-      <div className="absolute inset-0 flex items-center justify-center pt-16 md:pt-[72px] pb-8 md:pb-32">
+      <div className="absolute inset-0 flex items-center justify-center pt-16 md:pt-18 pb-8 md:pb-32">
         <div className="text-center max-w-200 px-4">
           <p
             className="hero-eyebrow font-mono text-xs uppercase tracking-widest text-white mb-4"
@@ -81,7 +81,7 @@ export default function Hero() {
           </h1>
 
           <p
-            className="hero-sub font-body text-base md:text-lg text-white/80 leading-relaxed max-w-150 mx-auto mb-8"
+            className="hero-sub font-body text-lg text-white/80 leading-relaxed max-w-150 mx-auto mb-8"
           >
             Fed by underground springs, our pool stays crystal-clear and naturally cool &mdash; straight from the earth, always refreshing.
           </p>

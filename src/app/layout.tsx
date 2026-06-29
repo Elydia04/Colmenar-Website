@@ -89,7 +89,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-screen flex flex-col font-body text-stone bg-white">
+      <body className="min-h-screen flex flex-col font-body text-stone bg-white overflow-x-hidden">
         <ScrollToTop />
         <Navbar />
         <main className="flex-1">{children}</main>
