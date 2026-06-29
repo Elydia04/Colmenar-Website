@@ -64,7 +64,7 @@ export default function Hero() {
         </svg>
       ))}
 
-      <div className="absolute inset-0 flex items-end justify-center pb-16 md:pb-24">
+      <div className="absolute inset-0 flex items-center md:items-end justify-center pb-8 md:pb-24">
         <div className="text-center max-w-200 px-4">
           <p
             className="hero-eyebrow font-mono text-xs uppercase tracking-widest text-white mb-4"
