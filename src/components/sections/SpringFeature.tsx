@@ -6,7 +6,6 @@ import { useScrollReveal } from '@/lib/useScrollReveal'
 import { useCountUp } from '@/lib/useCountUp'
 import Badge from '@/components/ui/Badge'
 import AccentTick from '@/components/ui/AccentTick'
-import RevealImage from '@/components/ui/RevealImage'
 import WaveDivider from '@/components/ui/WaveDivider'
 import RippleRing from '@/components/ui/RippleRing'
 import Lightbox from '@/components/ui/Lightbox'
@@ -70,7 +69,6 @@ export default function SpringFeature() {
         className="reveal-wrapper max-w-[1260px] mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center"
       >
         <div className="reveal-left">
-          <RevealImage>
           <div className="relative max-w-[31.5rem] mx-auto lg:ml-[12%]">
             <div className="aspect-[4/3] relative overflow-hidden rounded-xl shadow-lg group">
               {items.map((img, i) => {
@@ -129,7 +127,6 @@ export default function SpringFeature() {
               </div>
             </div>
           </div>
-          </RevealImage>
         </div>
 
         <div className="reveal-right space-y-6">

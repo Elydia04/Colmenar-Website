@@ -3,7 +3,6 @@
 import Image from 'next/image'
 import { useScrollReveal } from '@/lib/useScrollReveal'
 import AccentTick from '@/components/ui/AccentTick'
-import RevealImage from '@/components/ui/RevealImage'
 
 const amenities = [
   { img: '/images/hero-pool.jpg', title: 'Natural Spring Pool', desc: 'Main pool, spring-fed, open daily' },
@@ -37,17 +36,15 @@ export default function Amenities() {
               className="bg-white border border-spring-pale rounded-2xl overflow-hidden text-left group hover:-translate-y-1 hover:shadow-lg hover:border-spring-mid transition-all duration-300"
             >
               {a.img ? (
-                <RevealImage>
-                  <div className="h-40 relative overflow-hidden">
-                    <Image
-                      src={a.img}
-                      alt={a.title}
-                      fill
-                      className="object-cover transition-all duration-500 group-hover:scale-105"
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    />
-                  </div>
-                </RevealImage>
+                <div className="h-40 relative overflow-hidden">
+                  <Image
+                    src={a.img}
+                    alt={a.title}
+                    fill
+                    className="object-cover transition-all duration-500 group-hover:scale-105"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
+                </div>
               ) : (
                 <div className="h-40 bg-gradient-to-br from-spring-foam to-spring-pale flex items-center justify-center">
                   <span className="text-4xl text-spring-deep/40" aria-hidden="true">&#10022;</span>

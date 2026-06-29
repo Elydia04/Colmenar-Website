@@ -22,7 +22,6 @@
   --animate-pulse-soft: pulse-soft 2s ease-in-out infinite;
   --animate-pulse-glow: pulse-glow 2s ease-in-out infinite;
   --animate-tick-reveal: tickDraw 0.8s ease-out forwards;
-  --animate-image-reveal: imageReveal 0.9s ease-out forwards;
 }
 
 html {
@@ -127,28 +126,6 @@ html {
 
 .accent-tick--mid {
   background: var(--color-spring-mid);
-}
-
-@keyframes imageReveal {
-  0% {
-    clip-path: inset(0 100% 0 0);
-    opacity: 0;
-  }
-  100% {
-    clip-path: inset(0 0 0 0);
-    opacity: 1;
-  }
-}
-
-.reveal-image {
-  clip-path: inset(0 100% 0 0);
-  opacity: 0;
-  transition: clip-path 0.9s ease, opacity 0.9s ease;
-}
-
-.reveal-image.revealed {
-  clip-path: inset(0 0 0 0);
-  opacity: 1;
 }
 
 @keyframes count-glow {
