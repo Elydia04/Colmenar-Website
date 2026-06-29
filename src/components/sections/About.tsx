@@ -4,12 +4,18 @@ import Image from 'next/image'
 import Badge from '@/components/ui/Badge'
 import AccentTick from '@/components/ui/AccentTick'
 import Link from 'next/link'
+import { useScrollReveal } from '@/lib/useScrollReveal'
 
 export default function About() {
+  const ref = useScrollReveal()
+
   return (
     <section className="bg-cream py-20 md:py-28">
-      <div className="max-w-300 mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-5 gap-8 md:gap-12 items-center">
-        <div className="lg:col-span-3 relative">
+      <div
+        ref={ref}
+        className="reveal-wrapper max-w-300 mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-5 gap-8 md:gap-12 items-center"
+      >
+        <div className="lg:col-span-3 relative reveal-left">
           <div className="aspect-4/3 rounded-2xl overflow-hidden shadow-lg relative">
             <Image
               src="/images/spring-source.jpg"
@@ -24,7 +30,7 @@ export default function About() {
           </Badge>
         </div>
 
-        <div className="lg:col-span-2 space-y-6">
+        <div className="lg:col-span-2 space-y-6 reveal-right">
           <p className="font-mono text-xs uppercase tracking-widest text-leaf">
             Our Story
           </p>
