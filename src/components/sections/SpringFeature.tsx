@@ -148,10 +148,10 @@ export default function SpringFeature() {
                   <path d="M12 3v3" />
                 </svg>
               </RippleRing>
-              <span className="font-display text-4xl md:text-5xl font-semibold text-white mt-4 leading-tight">
-                Deep Spring
+              <span className="font-display text-5xl md:text-6xl font-semibold text-white mt-4">
+                Deep
               </span>
-              <span className="font-body text-sm text-spring-foam/80 mt-1">Source</span>
+              <span className="font-body text-sm text-spring-foam/80 mt-1">Spring Source</span>
             </div>
             <Stat
               value={24}
